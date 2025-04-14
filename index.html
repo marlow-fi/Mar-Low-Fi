@@ -11,22 +11,25 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1a202c;
-            color: #e2e8f0;
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light text */
         }
+        /* Custom accent color (adjust the green as needed) */
         .accent-color {
-            background-color: #38a169;
+            background-color: #38a169; /* Green */
             color: white;
         }
         .accent-color-text {
-            color: #48bb78;
+            color: #48bb78; /* Lighter Green for text */
         }
         .accent-border {
             border-color: #38a169;
         }
+        /* Smooth scroll */
         html {
             scroll-behavior: smooth;
         }
+        /* Simple animation for buttons */
         .btn-hover {
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
@@ -34,12 +37,15 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+        /* Placeholder for hero background */
         .hero-bg {
+            /* Replace this URL with your actual hero background image */
             background-image: url('https://placehold.co/1920x1080/1a202c/4a5568?text=Mar+Low-Fi+Audiovisual');
             background-size: cover;
             background-position: center;
-            background-blend-mode: overlay;
+            background-blend-mode: overlay; /* Blend with background color */
         }
+        /* Animación de Enfoque */
         .focus-container {
             position: relative;
             display: flex;
@@ -104,36 +110,41 @@
             border-top: none;
         }
 
+        /* --- Inicio: CSS para Fondo de Estrellas --- */
         #aclaracion-tarifas {
-            position: relative;
-            overflow: hidden;
-            background-color: #000000;
+            position: relative; /* Necesario para posicionar pseudo-elementos */
+            overflow: hidden; /* Evita que las estrellas se salgan */
+            background-color: #000000; /* Fondo negro base */
         }
 
+        /* Crear las estrellas usando box-shadow en pseudo-elementos */
         .stars, .stars::before, .stars::after {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
-            width: 1px;
-            height: 1px;
-            background: transparent;
-            box-shadow: var(--box-shadow-stars);
+            width: 1px; /* Tamaño base de la estrella */
+            height: 1px; /* Tamaño base de la estrella */
+            background: transparent; /* El fondo no se ve, solo la sombra */
+            box-shadow: var(--box-shadow-stars); /* Variable para las sombras */
             animation: twinkle var(--animation-duration) linear infinite;
-            z-index: 0;
+            z-index: 0; /* Detrás del contenido */
         }
 
+        /* Capa 1: Estrellas pequeñas y densas */
         .stars {
-            --box-shadow-stars:
+            --box-shadow-stars: /* Generar muchas sombras pequeñas */
                 79vw 88vh #FFF, 1vw 19vh #FFF, 37vw 14vh #FFF, 61vw 5vh #FFF, 15vw 89vh #FFF,
                 2vw 84vh #FFF, 81vw 68vh #FFF, 50vw 5vh #FFF, 62vw 80vh #FFF, 9vw 7vh #FFF,
                 8vw 15vh #FFF, 69vw 68vh #FFF, 2vw 81vh #FFF, 85vw 84vh #FFF, 67vw 62vh #FFF,
+                /* Añadir más si se desea mayor densidad */
                 10vw 30vh rgba(255,255,255,0.8), 90vw 50vh rgba(255,255,255,0.7),
                 30vw 70vh rgba(255,255,255,0.9), 70vw 10vh rgba(255,255,255,0.6),
                 55vw 95vh #FFF, 5vw 5vh #FFF, 95vw 95vh #FFF;
-            --animation-duration: 50s;
+            --animation-duration: 50s; /* Duración lenta para la animación */
         }
 
+        /* Capa 2: Estrellas medianas, menos densas */
         .stars::before {
             width: 2px;
             height: 2px;
@@ -141,630 +152,51 @@
                 6vw 86vh #FFF, 84vw 9vh #FFF, 51vw 11vh #FFF, 11vw 51vh #FFF, 80vw 38vh #FFF,
                 34vw 99vh #FFF, 13vw 61vh #FFF, 68vw 48vh #FFF, 46vw 82vh #FFF, 98vw 24vh #FFF,
                 22vw 33vh rgba(255,255,255,0.7), 77vw 66vh rgba(255,255,255,0.8);
-            --animation-duration: 100s;
-            animation-delay: -25s;
+            --animation-duration: 100s; /* Duración más lenta */
+            animation-delay: -25s; /* Desfase de animación */
         }
 
+        /* Capa 3: Estrellas grandes, dispersas */
         .stars::after {
             width: 3px;
             height: 3px;
             --box-shadow-stars:
                 19vw 56vh #FFF, 64vw 21vh #FFF, 8vw 91vh #FFF, 41vw 30vh #FFF, 93vw 70vh #FFF,
                 29vw 8vh rgba(255,255,255,0.6), 72vw 88vh rgba(255,255,255,0.7);
-            --animation-duration: 150s;
-            animation-delay: -50s;
+            --animation-duration: 150s; /* Duración muy lenta */
+            animation-delay: -50s; /* Desfase de animación */
         }
 
+        /* Animación de parpadeo/movimiento sutil */
         @keyframes twinkle {
-            0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
-            25% { opacity: 1; }
-            50% { transform: translate(1px, 1px) scale(1.05); opacity: 0.6; }
-            75% { opacity: 0.9; }
-            100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+          0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+          25% { opacity: 1; }
+          50% { transform: translate(1px, 1px) scale(1.05); opacity: 0.6; } /* Movimiento muy sutil */
+          75% { opacity: 0.9; }
+          100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
         }
+        /* --- Fin: CSS para Fondo de Estrellas --- */
 
-        /* Estilos Responsive */
-        .container {
-            max-width: 1200px; /* Ajusta el ancho máximo según tus necesidades */
-            margin: 0 auto;
-            padding: 0 1rem; /* Añade padding horizontal para pantallas pequeñas */
-        }
-        .nav-container{
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 1rem;
-        }
-        .logo{
-          font-size: 1.5rem;
-          font-weight: bold;
-          color: #fff;
-        }
-        .nav-links {
-            display: flex;
-            justify-content: center; /* Centra los enlaces en pantallas pequeñas */
-            margin-top: 1rem; /* Añade espacio entre el logo y los enlaces en pantallas pequeñas */
-        }
-
-        .nav-links a {
-            color: #gray-300;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin: 0 0.5rem; /* Añade margen horizontal entre enlaces */
-        }
-
-        .nav-links a:hover {
-            color: #fff;
-        }
-
-        .nav-button {
-            background-color: #38a169;
-            color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 0.375rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-            margin-left: 0.5rem;
-        }
-
-        .nav-button:hover {
-            background-color: #2d7a51;
-        }
-
-        .hero-section {
-            text-align: center;
-            padding: 4rem 1rem;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: #fff;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero-description {
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-            max-width: 80%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .hero-button {
-            padding: 0.75rem 2rem;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            width: 100%; /* Para que los botones se expandan en pantallas pequeñas */
-            text-align: center;
-        }
-
-        .hero-button.primary {
-            background-color: #38a169;
-            color: #fff;
-        }
-
-        .hero-button.primary:hover {
-            background-color: #2d7a51;
-            transform: translateY(-2px);
-        }
-
-        .hero-button.secondary {
-            background-color: #e2e8f0;
-            color: #1a202c;
-        }
-
-        .hero-button.secondary:hover {
-            background-color: #d0d6e0;
-            transform: translateY(-2px);
-        }
-
-        #porque-grabar {
-            padding: 4rem 1rem;
-            background-color: #1a202c;
-            text-align: center;
-        }
-
-        #porque-grabar h2 {
-            font-size: 2.25rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: #48bb78;
-        }
-
-        #porque-grabar p {
-            font-size: 1rem;
-            color: #a0aec0;
-            margin-bottom: 3rem;
-            max-width: 80%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .porque-grabar-cards {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .porque-grabar-card {
-            background-color: #2d3748;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            text-align: left;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .porque-grabar-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        .porque-grabar-card p {
-            font-size: 0.875rem;
-            color: #a0aec0;
-        }
-
-        #planes {
-            padding: 4rem 1rem;
-            text-align: center;
-        }
-
-        #planes h2 {
-            font-size: 2.25rem;
-            font-weight: bold;
-            margin-bottom: 3rem;
-            color: #fff;
-        }
-
-        .planes-cards {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .planes-card {
-            background-color: #2d3748;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            border: 1px solid #4a5568;
-        }
-
-        .planes-card.popular {
-            border: 2px solid #48bb78;
-        }
-
-        .planes-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .planes-card p {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: #48bb78;
-        }
-
-        .planes-card p span {
-            font-size: 0.75rem;
-            font-weight: normal;
-            color: #a0aec0;
-        }
-
-        .planes-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 2rem 0;
-            flex-grow: 1;
-            text-align: left;
-        }
-
-        .planes-card li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 0.75rem;
-            font-size: 0.875rem;
-            color: #a0aec0;
-        }
-
-        .planes-card li svg {
-            width: 1rem;
-            height: 1rem;
-            margin-right: 0.5rem;
-            color: #48bb78;
-            margin-top: 0.25rem;
-            flex-shrink: 0;
-        }
-
-        .planes-card li span {
-            font-weight: 600;
-            color: #fff;
-        }
-
-        .planes-card .btn {
-            margin-top: auto;
-            display: block;
-            width: 100%;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            text-align: center;
-        }
-
-        .planes-card .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .planes-card .btn.primary {
-            background-color: #38a169;
-            color: #fff;
-        }
-
-        .planes-card .btn.primary:hover {
-            background-color: #2d7a51;
-        }
-
-        .planes-card .btn.secondary {
-            background-color: #4a5568;
-            color: #fff;
-        }
-
-        .planes-card .btn.secondary:hover {
-            background-color: #2d3748;
-        }
-
-        #aclaracion-tarifas {
-            padding: 4rem 1rem;
-            text-align: center;
-            border-top: 1px solid #f6e05e;
-            border-bottom: 1px solid #f6e05e;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #aclaracion-tarifas svg {
-            width: 3rem;
-            height: 3rem;
-            margin-bottom: 1rem;
-            color: #f6e05e;
-        }
-
-        #aclaracion-tarifas h2 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: #f6e05e;
-        }
-
-        #aclaracion-tarifas p {
-            font-size: 1rem;
-            color: #faf089;
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-            max-width: 80%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #aclaracion-tarifas p span {
-            font-weight: 600;
-        }
-
-        #aclaracion-tarifas a {
-            display: inline-block;
-            padding: 0.75rem 2rem;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            background-color: #f6e05e;
-            color: #1a202c;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        #aclaracion-tarifas a:hover {
-            background-color: #ed8936;
-            transform: translateY(-2px);
-        }
-
-        #condiciones {
-            padding: 4rem 1rem;
-            background-color: #1a202c;
-        }
-
-        #condiciones h2 {
-            font-size: 2.25rem;
-            font-weight: bold;
-            margin-bottom: 3rem;
-            color: #fff;
-            text-align: center;
-        }
-
-        #condiciones .condiciones-content {
-            background-color: #2d3748;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 80%;
-            margin: 0 auto;
-        }
-
-        #condiciones h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: #fff;
-        }
-
-        #condiciones ol {
-            list-style-position: inside;
-            margin-left: 0;
-            margin-bottom: 2rem;
-        }
-
-        #condiciones ol li {
-            margin-bottom: 1rem;
-            font-size: 0.875rem;
-            color: #a0aec0;
-            line-height: 1.5;
-        }
-
-        #condiciones ol li span {
-            font-weight: 600;
-            color: #fff;
-        }
-
-        #condiciones ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #condiciones ul li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 0.75rem;
-            font-size: 0.875rem;
-            color: #a0aec0;
-        }
-
-        #condiciones ul li svg {
-            width: 1rem;
-            height: 1rem;
-            margin-right: 0.5rem;
-            color: #a0aec0;
-            margin-top: 0.25rem;
-            flex-shrink: 0;
-        }
-
-        #condiciones ul li span {
-            font-weight: 600;
-            color: #fff;
-        }
-
-        #contacto {
-            padding: 4rem 1rem;
-            text-align: center;
-        }
-
-        #contacto h2 {
-            font-size: 2.25rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        #contacto p {
-            font-size: 1rem;
-            color: #a0aec0;
-            margin-bottom: 2.5rem;
-            max-width: 60%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contacto-card {
-            background-color: #2d3748;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 90%;
-            margin: 0 auto;
-        }
-
-        .contacto-card img {
-            width: 6rem;
-            height: 6rem;
-            border-radius: 50%;
-            margin-bottom: 1.5rem;
-            border: 2px solid #4a5568;
-            object-fit: cover;
-        }
-
-        .contacto-card p {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 0.5rem;
-        }
-
-        .contacto-card .contacto-info {
-            margin-bottom: 1.5rem;
-        }
-
-        .contacto-card .contacto-info a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #a0aec0;
-            text-decoration: none;
-            margin-bottom: 0.75rem;
-            transition: color 0.3s ease;
-        }
-
-        .contacto-card .contacto-info a:hover {
-            color: #fff;
-        }
-
-        .contacto-card .contacto-info svg {
-            width: 1.5rem;
-            height: 1.5rem;
-            margin-right: 0.75rem;
-            color: #48bb78;
-            flex-shrink: 0;
-        }
-
-        .contacto-card .map-text {
-            font-size: 0.875rem;
-            color: #a0aec0;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #4a5568;
-        }
-
-        footer {
-            background-color: #1a202c;
-            padding: 2.5rem 1rem;
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 0.875rem;
-            color: #a0aec0;
-            margin-bottom: 0.5rem;
-        }
-        /* Media Queries*/
-
-        @media (min-width: 768px) {
-            .nav-links {
-                display: flex;
-                justify-content: flex-start;
-                margin-top: 0;
-            }
-            .nav-links a {
-                margin: 0 1rem;
-            }
-            .hero-title {
-                font-size: 4rem;
-            }
-            .hero-description {
-                font-size: 1.25rem;
-                max-width: 60%;
-            }
-            .hero-buttons {
-                flex-direction: row;
-                justify-content: center;
-            }
-            .hero-button {
-                width: auto;
-            }
-            #porque-grabar p {
-                max-width: 60%;
-            }
-            .porque-grabar-cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            #planes h2{
-                font-size: 2.75rem;
-            }
-            .planes-cards {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            #aclaracion-tarifas h2{
-                font-size: 2rem;
-            }
-            #aclaracion-tarifas p{
-                font-size: 1.125rem;
-            }
-            #condiciones h2{
-                font-size: 2.75rem;
-            }
-            #condiciones .condiciones-content{
-                max-width: 60%;
-            }
-            #contacto p{
-                max-width: 40%;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .hero-title {
-                font-size: 5rem;
-            }
-            .hero-description {
-                font-size: 1.5rem;
-            }
-        }
     </style>
 </head>
 <body class="antialiased">
     <nav class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 py-3 shadow-md">
-        <div class="container nav-container">
-            <div class="logo">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white">
                 Mar <span class="accent-color-text">Low-Fi</span>
             </div>
-            <div class="nav-links">
-                <a href="#planes">Planes</a>
-                <a href="#contacto">Contacto</a>
+            <div class="space-x-4">
+                <a href="#planes" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Planes</a>
+                <a href="#contacto" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contacto</a>
+                <a href="tel:+56983835661" class="accent-color hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium btn-hover inline-block">Llamar Ahora</a>
             </div>
-            <a href="tel:+56983835661" class="nav-button">Llamar Ahora</a>
         </div>
     </nav>
 
-    <section class="hero-section hero-bg">
-        <div class="hero-content">
-            <h1 class="hero-title">
+    <section class="hero-bg bg-gray-800/70 text-white py-24 md:py-32 relative">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="font-bold mb-4 leading-tight">
                 <div class="focus-container" id="focusContainer">
                     <span class="focus-word">MAR</span>
                     <span class="focus-word">LOW-FI</span>
@@ -776,208 +208,248 @@
                     </div>
                 </div>
             </h1>
-            <p class="hero-description">
-                Capturamos la Esencia de tu Arte en Vivo. Registro audiovisual profesional para músicos,
-                artistas y eventos íntimos con calidad y enfoque en los detalles.
-            </p>
-            <div class="hero-buttons">
-                <a href="#planes" class="hero-button primary">
+            <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">Capturamos la Esencia de tu Arte en Vivo. Registro audiovisual profesional para músicos, artistas y eventos íntimos con calidad y enfoque en los detalles.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#planes" class="accent-color hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg btn-hover inline-block text-lg">
                     Ver Planes y Precios
                 </a>
-                <a href="#contacto" class="hero-button secondary">
+                <a href="#contacto" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-8 rounded-lg shadow-lg btn-hover inline-block text-lg">
                     Solicitar Cotización
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="porque-grabar">
-        <div class="container">
-            <h2>Inmortaliza tus Momentos Únicos</h2>
-            <p>
-                Un evento en vivo es irrepetible. Un registro profesional te permite revivir la magia,
-                promocionar tu trabajo, analizar tu performance y compartir tu arte.
-            </p>
-            <div class="porque-grabar-cards">
-                <div class="porque-grabar-card">
-                    <h3>Revive la Magia</h3>
-                    <p>Conserva un recuerdo fiel y de alta calidad de tu evento.</p>
+    <section id="porque-grabar" class="py-16 md:py-24 bg-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 accent-color-text">Inmortaliza tus Momentos Únicos</h2>
+            <p class="text-lg text-gray-400 mb-12 max-w-3xl mx-auto">Un evento en vivo es irrepetible. Un registro profesional te permite revivir la magia, promocionar tu trabajo, analizar tu performance y compartir tu arte.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Revive la Magia</h3>
+                    <p class="text-gray-400">Conserva un recuerdo fiel y de alta calidad de tu evento.</p>
                 </div>
-                <div class="porque-grabar-card">
-                    <h3>Promociona tu Trabajo</h3>
-                    <p>Usa clips y videos para redes sociales, portafolios y difusión.</p>
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Promociona tu Trabajo</h3>
+                    <p class="text-gray-400">Usa clips y videos para redes sociales, portafolios y difusión.</p>
                 </div>
-                <div class="porque-grabar-card">
-                    <h3>Analiza y Mejora</h3>
-                    <p>Revisa tu performance con material audiovisual profesional.</p>
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Analiza y Mejora</h3>
+                    <p class="text-gray-400">Revisa tu performance con material audiovisual profesional.</p>
                 </div>
-                <div class="porque-grabar-card">
-                    <h3>Comparte tu Arte</h3>
-                    <p>Llega a audiencias que no pudieron asistir al evento en vivo.</p>
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Comparte tu Arte</h3>
+                    <p class="text-gray-400">Llega a audiencias que no pudieron asistir al evento en vivo.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="planes">
-        <div class="container">
-            <h2>Planes Diseñados para Tus Necesidades</h2>
-            <div class="planes-cards">
-                <div class="planes-card">
-                    <h3>Plan Registro</h3>
-                    <p>$100.000 <span>+ IVA</span></p>
-                    <p class="text-sm italic">Ideal para quienes desean el material completo para editarlo libremente.</p>
-                    <ul>
-                        <li>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+    <section id="planes" class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Planes Diseñados para Tus Necesidades</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700 flex flex-col">
+                    <h3 class="text-2xl font-semibold mb-4">Plan Registro</h3>
+                    <p class="text-3xl font-bold mb-4 accent-color-text">$100.000 <span class="text-sm font-normal text-gray-400">+ IVA</span></p>
+                    <p class="text-gray-400 mb-6 text-sm italic">Ideal para quienes desean el material completo para editarlo libremente.</p>
+                    <ul class="space-y-3 text-gray-300 mb-8 flex-grow">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 accent-color-text flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             Grabación show en vivo (1 cámara, duración total).
                         </li>
-                        <li>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 accent-color-text flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             Captura dinámica buscando mejores ángulos.
                         </li>
-                        <li>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 accent-color-text flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             Entrega material en bruto (sin edición).
                         </li>
-                        <li>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 accent-color-text flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             Entrega vía Google Drive al día siguiente.
                         </li>
                     </ul>
-                    <a href="#contacto" class="btn secondary">Seleccionar Plan</a>
+                    <a href="#contacto" class="mt-auto block w-full text-center bg-gray-600 hover:bg-gray-500 text-white font-semibold py-3 px-6 rounded-lg btn-hover">Seleccionar Plan</a>
                 </div>
-                <div class="planes-card popular">
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg border-2 accent-border flex flex-col relative">
                     <span class="absolute top-0 right-0 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">Popular</span>
-                    <h3>Plan Básico</h3>
-                    <p>$150.000 <span>+ IVA</span></p>
-                    <p class="text-sm italic">Perfecto para tener el registro completo y un clip listo para redes.</p>
-                    <ul>
-                        <li>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <h3 class="text-2xl font-semibold mb-4">Plan Básico</h3>
+                    <p class="text-3xl font-bold mb-4 accent-color-text">$150.000 <span class="text-sm font-normal text-gray-400">+ IVA</span></p>
+                    <p class="text-gray-400 mb-6 text-sm italic">Perfecto para tener el registro completo y un clip listo para redes.</p>
+                    <ul class="space-y-3 text-gray-300 mb-8 flex-grow">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 accent-color-text flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             Grabación show en vivo (1 cámara, duración total).
                         </li>
-                        <li>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 accent-color-text flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             Captura cuidando mejores ángulos.
                         </li>
-                        <li>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 accent-color-text flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             Entrega material en bruto al día siguiente (Drive).
                         </li>
-                        <li>
-                           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span>Edición de 1 Video Reel (30-60 seg) para redes.</span>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 accent-color-text flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="font-semibold">Edición de 1 Video Reel (30-60 seg) para redes.</span>
                         </li>
-                         <li>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                         <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 accent-color-text flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             Reel editado entregado en 5 días hábiles.
                         </li>
                     </ul>
-                    <a href="#contacto" class="btn primary">Seleccionar Plan</a>
+                    <a href="#contacto" class="mt-auto block w-full text-center accent-color hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg btn-hover">Seleccionar Plan</a>
                 </div>
-                <div class="planes-card">
-                    <h3>Plan Premium</h3>
-                     <p>Desde $225.000 <span>+ IVA</span></p>
-                    <p class="text-sm italic">La opción más completa para un registro dinámico multiángulo.</p>
-                    <ul>
-                         <li>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Incluye <span>TODO lo del Plan Básico</span>.
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700 flex flex-col">
+                    <h3 class="text-2xl font-semibold mb-4">Plan Premium</h3>
+                    <p class="text-3xl font-bold mb-4 accent-color-text">Desde $225.000 <span class="text-sm font-normal text-gray-400">+ IVA</span></p>
+                    <p class="text-gray-400 mb-6 text-sm italic">La opción más completa para un registro dinámico multiángulo.</p>
+                    <ul class="space-y-3 text-gray-300 mb-8 flex-grow">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 accent-color-text flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Incluye <span class="font-semibold">TODO lo del Plan Básico</span>.
                         </li>
-                        <li>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span>Opción de Cámaras Adicionales</span> (+ $75.000 + IVA c/u).
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 accent-color-text flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="font-semibold">Opción de Cámaras Adicionales</span> (+ $75.000 + IVA c/u).
                         </li>
-                        <li>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <li class="flex items-start">
+                           <svg class="w-5 h-5 mr-2 accent-color-text flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             Ideal para variedad de ángulos y planos simultáneos.
                         </li>
-                        <li>
-                            <svg class="text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 text-yellow-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                             Requiere agendar con anticipación (sujeto a disponibilidad).
                         </li>
                     </ul>
-                    <a href="#contacto" class="btn secondary">Consultar Premium</a>
+                    <a href="#contacto" class="mt-auto block w-full text-center bg-gray-600 hover:bg-gray-500 text-white font-semibold py-3 px-6 rounded-lg btn-hover">Consultar Premium</a>
                 </div>
-            </div>
-            <div class="mt-8">
-                <a href="#contacto" class="hero-button primary">
-                    Cotiza tu evento
-                </a>
             </div>
         </div>
     </section>
 
-    <section id="aclaracion-tarifas">
+    <section id="aclaracion-tarifas" class="py-16 border-t border-b border-yellow-700">
         <div class="stars"></div>
-        <div class="container">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <h2>Aclaración Importante Sobre Tarifas</h2>
-            <p>
-                Los valores indicados aplican como <span>descuento especial para eventos de pequeña escala</span>
-                (presentaciones íntimas, eventos culturales reducidos, etc.).
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <svg class="w-12 h-12 mx-auto mb-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 text-yellow-300">Aclaración Importante Sobre Tarifas</h2>
+            <p class="text-lg text-yellow-200 mb-6 max-w-3xl mx-auto">Los valores indicados aplican como **descuento especial para eventos de pequeña escala** (presentaciones íntimas, eventos culturales reducidos, etc.).</p>
+            <p class="text-yellow-200 mb-8 max-w-3xl mx-auto">
+                <span class="font-semibold">NO son válidos</span> para eventos de mayor magnitud como: Conciertos masivos, Matrimonios, Festivales o Eventos corporativos grandes.
             </p>
-            <p>
-                <span>NO son válidos</span> para eventos de mayor magnitud como:
-                Conciertos masivos, Matrimonios, Festivales o Eventos corporativos grandes.
-            </p>
-            <a href="#contacto" class="btn">
+            <a href="#contacto" class="bg-yellow-500 hover:bg-yellow-600 text-yellow-900 font-semibold py-3 px-8 rounded-lg shadow-lg btn-hover inline-block text-lg">
                 Cotizar Evento Grande
             </a>
         </div>
     </section>
 
-    <section id="condiciones">
-        <div class="container">
-            <h2>Condiciones del Servicio</h2>
-            <div class="condiciones-content">
-                <h3>Nuestro Compromiso y Proceso:</h3>
-                <ol>
-                    <li><span>Reserva tu Fecha:</span> Asegura tu grabación abonando el 50% del plan elegido.</li>
-                    <li><span>Día del Evento:</span> El 50% restante se abona el mismo día, antes de iniciar la grabación.</li>
-                    <li><span>Grabación Profesional:</span> Realizamos la captura según lo acordado.</li>
-                    <li><span>Entrega Rápida:</span> Recibes el material en los plazos indicados (bruto al día siguiente, reel en 5 días hábiles si aplica).</li>
+    <section id="condiciones" class="py-16 md:py-24 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Condiciones del Servicio</h2>
+            <div class="max-w-3xl mx-auto bg-gray-700 p-8 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold mb-6 text-white">Nuestro Compromiso y Proceso:</h3>
+                <ol class="list-decimal list-inside space-y-4 text-gray-300 mb-8">
+                    <li><span class="font-semibold">Reserva tu Fecha:</span> Asegura tu grabación abonando el 50% del plan elegido.</li>
+                    <li><span class="font-semibold">Día del Evento:</span> El 50% restante se abona el mismo día, antes de iniciar la grabación.</li>
+                    <li><span class="font-semibold">Grabación Profesional:</span> Realizamos la captura según lo acordado.</li>
+                    <li><span class="font-semibold">Entrega Rápida:</span> Recibes el material en los plazos indicados (bruto al día siguiente, reel en 5 días hábiles si aplica).</li>
                 </ol>
-                <h3>Detalles Adicionales:</h3>
-                <ul>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                        <span>Forma de Pago:</span> Transferencia bancaria (datos se envían al confirmar).
+                <h3 class="text-xl font-semibold mb-4 text-white">Detalles Adicionales:</h3>
+                <ul class="space-y-3 text-gray-400">
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 mr-2 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <span class="font-semibold mr-1">Forma de Pago:</span> Transferencia bancaria (datos se envían al confirmar).
                     </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span>Cancelaciones:</span> Si cancelas, se reembolsa el 50% del abono inicial (reserva).
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 mr-2 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="font-semibold mr-1">Cancelaciones:</span> Si cancelas, se reembolsa el 50% del abono inicial (reserva).
                     </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <span>Fotografía:</span> Servicio exclusivo de video. Fotografía se puede cotizar aparte.
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 mr-2 text-gray-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span class="font-semibold mr-1">Fotografía:</span> Servicio exclusivo de video. Fotografía se puede cotizar aparte.
                     </li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="contacto">
-        <div class="container">
-            <h2>¿Listo para Registrar tu Arte?</h2>
-            <p>¡Hablemos! Será un gusto capturar tu evento con la calidad que merece.</p>
-            <div class="contacto-card">
+    <section id="contacto" class="py-16 md:py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Listo para Registrar tu Arte?</h2>
+            <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">¡Hablemos! Será un gusto capturar tu evento con la calidad que merece.</p>
+            <div class="bg-gray-800 inline-block p-8 rounded-lg shadow-lg text-left max-w-md mx-auto">
                  <img
                     src="https://imgur.com/a/KD4HL2q"
                     alt="[Imagen de Marcelo Meza]"
+                    class="w-24 h-24 rounded-full mx-auto mb-6 border-2 border-gray-600 object-cover"
                     onerror="this.onerror=null; this.src='https://placehold.co/96x96/1a202c/e2e8f0?text=MM';"
                 >
-                <p>Marcelo Meza</p>
-                <p class="text-gray-400">Productor Audiovisual - Mar Low-Fi</p>
-                <div class="contacto-info">
-                    <a href="tel:+56983835661">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                        +56 9 8383 5661
+                <p class="text-xl font-semibold text-white mb-2 text-center">Marcelo Meza</p>
+                <p class="text-gray-400 mb-6 text-center">Productor Audiovisual - Mar Low-Fi</p>
+                <div class="space-y-4">
+                    <a href="tel:+56983835661" class="flex items-center text-gray-300 hover:text-white group">
+                        <svg class="w-6 h-6 mr-3 accent-color-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <span class="group-hover:underline">+56 9 8383 5661</span>
                     </a>
-                    <a href="mailto:definiendo.tu.frecuencia@gmail.com">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                        definiendo.tu.frecuencia@gmail.com
+                    <a href="mailto:definiendo.tu.frecuencia@gmail.com" class="flex items-center text-gray-300 hover:text-white group">
+                        <svg class="w-6 h-6 mr-3 accent-color-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <span class="group-hover:underline">definiendo.tu.frecuencia@gmail.com</span>
                     </a>
-                    <a href="https://wa.me/56983835661?text=Hola%20Marcelo%2C%20estoy%20interesado%20en%20tus%20servicios%20de%20grabaci%C3%B3n." target="_blank" rel="noopener noreferrer">
-                        <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-
+                    <a href="https://wa.me/56983835661?text=Hola%20Marcelo%2C%20estoy%20interesado%20en%20tus%20servicios%20de%20grabaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-300 hover:text-white group">
+                        <svg class="w-6 h-6 mr-3 accent-color-text" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        <span>Enviar mensaje por WhatsApp</span>
+                    </a>
+                </div>
+                <div class="mt-8 pt-6 border-t border-gray-700">
+                    <p class="text-sm text-gray-500">También puedes completar un formulario (si decides añadir uno) o visitarnos en Osorno, Chile.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; <span id="current-year"></span> Mar Low-Fi | Producción Audiovisual Profesional | Osorno, Chile.</p>
+            <p class="mt-2 text-sm">Gracias por tu interés en nuestro servicio.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // --- JavaScript para Animación de Enfoque (Hero) ---
+        const focusWords = document.querySelectorAll('.focus-word');
+        const focusFrame = document.getElementById('focusFrame');
+        const focusContainer = document.getElementById('focusContainer');
+        let focusIndex = 0;
+
+        function updateFocusFrame(el) {
+            if (!el || !focusContainer || !focusFrame) return;
+            const parentRect = focusContainer.getBoundingClientRect();
+            const rect = el.getBoundingClientRect();
+            focusFrame.style.width = `${rect.width}px`;
+            focusFrame.style.height = `${rect.height}px`;
+            focusFrame.style.transform = `translate(${rect.left - parentRect.left}px, ${rect.top - parentRect.top}px)`;
+        }
+
+        function activateWord(i) {
+            if (!focusWords || focusWords.length === 0) return;
+            focusWords.forEach((word, idx) => {
+                word.classList.toggle('active', idx === i);
+            });
+            updateFocusFrame(focusWords[i]);
+        }
+
+        if (focusWords && focusWords.length > 0) {
+            activateWord(focusIndex);
+            setInterval(() => {
+                focusIndex = (focusIndex + 1) % focusWords.length;
+                activateWord(focusIndex);
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
